@@ -2,20 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    tools:context=".HomeActivity" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="@string/hello_world" />
-    
-	<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/map"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:name="com.google.android.gms.maps.MapFragment"/>
-    
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="@string/show_map"
+        android:onClick="gotoMap" />
 
 </RelativeLayout>

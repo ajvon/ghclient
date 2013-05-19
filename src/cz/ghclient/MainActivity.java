@@ -1,45 +1,39 @@
 package cz.ghclient;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
-
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
-import android.view.Menu;
+import android.content.Intent;
+import android.support.v4.app.NavUtils;
+import android.view.MenuItem;
 
-public class MainActivity extends FragmentActivity {
-	static final LatLng HAMBURG = new LatLng(53.558, 9.927);
-	static final LatLng KIEL = new LatLng(53.551, 9.993);
-	private GoogleMap map;
+public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		
-		map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
-				.getMap();
 
-		if (map != null) {
-			Marker hamburg = map.addMarker(new MarkerOptions()
-					.position(HAMBURG).title("Hamburg"));
-			Marker kiel = map.addMarker(new MarkerOptions()
-					.position(KIEL)
-					.title("Kiel")
-					.snippet("Kiel is cool")
-					.icon(BitmapDescriptorFactory
-							.fromResource(R.drawable.ic_launcher)));
-		}else{
-			Log.e("ghclient", "cannot prepare map");
+		Intent homeIntent = new Intent(this, HomeActivity.class);
+		startActivity(homeIntent);
+
+		// Inflate the menu; this adds items to the action bar if it is present.
+		// getMenuInflater().inflate(R.menu.map, menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			// This ID represents the Home or Up button. In the case of this
+			// activity, the Up button is shown. Use NavUtils to allow users
+			// to navigate up one level in the application structure. For
+			// more details, see the Navigation pattern on Android Design:
+			//
+			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
+			//
+			NavUtils.navigateUpFromSameTask(this);
+			return true;
 		}
-
+		return super.onOptionsItemSelected(item);
 	}
 }

@@ -4,5 +4,9 @@
     <string name="app_name">ghclient</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="main_hello_world">Hello world from Main Activity!</string>
+    <string name="show_map">Zobrazit mapu</string>
 
 </resources>
